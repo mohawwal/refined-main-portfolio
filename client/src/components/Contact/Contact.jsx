@@ -9,13 +9,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./Contact.css";
 
+import axios from 'axios'
+
 import { motion } from "framer-motion";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup"
-import axios from 'axios'
 
 
 const Contact = () => {
+  
   const initialValue = {
     name: "",
     email: "",
@@ -32,7 +34,7 @@ const Contact = () => {
   });
 
   const sendMail = (values) => {
-    axios.get("http://localhost:3001/", { params: values })
+    axios.get("http://localhost:3002/mail", { params: values })
      .then(() => {
         console.log('success');
         alert("Message delivered")
@@ -43,7 +45,6 @@ const Contact = () => {
   };
   
   
-
   
   return (
     <motion.div
@@ -69,8 +70,10 @@ const Contact = () => {
                 <FontAwesomeIcon className="media-icon" icon={faEnvelope} />
               </div>
               <div className="media">
-                <p className="command-text">MAIL ME</p>{" "}
-                <p>aanileleye@gmail.com</p>
+                <a href="mailto:email@example.com"  target="_blank" rel="noreferrer">
+                  <p className="command-text">MAIL ME</p>
+                  <p>aanileleye@gmail.com</p>
+                </a>
               </div>
             </div>
             <div className="social-media">
