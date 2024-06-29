@@ -25,7 +25,6 @@ const Contact = () => {
     message: ""
   }
 
-
   const validationSchema = Yup.object().shape({
     name: Yup.string(),
     email: Yup.string().email().required("Email is required"),
@@ -34,7 +33,7 @@ const Contact = () => {
   });
 
   const sendMail = (values) => {
-    axios.get("http://localhost:3002/mail", { params: values })
+    axios.get("https://refined-portfolio-api.onrender.com", { params: values })
      .then(() => {
         console.log('success');
         alert("Message delivered")
@@ -43,8 +42,6 @@ const Contact = () => {
         console.log('failure');
       });
   };
-  
-  
   
   return (
     <motion.div
@@ -109,7 +106,6 @@ const Contact = () => {
                     name='name'
                   />
                   <ErrorMessage name='name' component='div' className="errorMsg"/>
-                  {/* <div className="errorMsg">Name can't be empty</div> */}
                 </div>
               </div>
               <div className="input-text">
@@ -121,7 +117,6 @@ const Contact = () => {
                     name='email'
                   />
                   <ErrorMessage name='email' component='div' className="errorMsg"/>
-                  {/* <div className="errorMsg">Email can't be empty</div> */}
                 </div>
               </div>
               <div className="input-text">
@@ -134,7 +129,6 @@ const Contact = () => {
                     name='subject'
                   />
                   <ErrorMessage name='subject' component='div' className="errorMsg"/>
-                  {/* <div className="errorMsg">Subject can't be empty</div> */}
                 </div>
               </div>
             </div>
@@ -147,9 +141,10 @@ const Contact = () => {
                 name='message'
               />
                <ErrorMessage name='message' component='div' className="errorMsg"/>
-               {/* <div className="errorMsg">Message can't be empty</div> */}
             </div>
-            <button type="submit" className="message-btn">GET IN TOUCH</button>
+            <button 
+              type="submit"
+              className="message-btn">GET IN TOUCH</button>
           </Form>
         </Formik>
       </div>

@@ -73,14 +73,14 @@ nav .mobile-nav-list {
   margin-left: 10%;
 }
 
+.active {
+  color: rgb(89, 34, 141);
+}
+
+
 .navHome {
   display: none;
 }
-
-/* .nav-head-text {
-  font-weight: 700;
-  font-size: 18px;
-} */
 
 h1 span {
   color: rgb(213, 169, 255);
